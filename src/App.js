@@ -2,17 +2,16 @@ import React from "react";
 import { DatePicker } from "antd";
 import { Routes, Route } from 'react-router-dom'
 import Registration from "./Pages/Registration";
+import CreateAccount from "./Pages/CreateAccount";
 
 const App = () => {
   return (
-    <div className="text-center">
-      <h1>App</h1>
+    <div className="">
       <Routes>
         <Route path="/" element={ <Registration /> } />
-        {/* <Route path="about" element={ <About/> } /> */}
+        <Route path="registration" element={ <CreateAccount /> } />
         {/* <Routes path="contact" element={ <Contact/> } /> */}
       </Routes>
-      <DatePicker />
     </div>
   );
 };
