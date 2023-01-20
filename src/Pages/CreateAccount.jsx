@@ -58,22 +58,7 @@ const Registration = () => {
         <div  className="mt-10">
           {/* <Reg1 /> */}
           <Button>Button</Button>
-          <Tabs value="html" className="bg-[red]">
-      <TabsHeader>
-        {data?.map(({ label, value }) => (
-          <Tab className="" key={value} value={value}>
-            {label}
-          </Tab>
-        ))}
-      </TabsHeader>
-      <TabsBody>
-        {data.map(({ value, desc }) => (
-          <TabPanel key={value} value={value}>
-            {desc}
-          </TabPanel>
-        ))}
-      </TabsBody>
-    </Tabs>
+          
           {/* <Reg2 /> */}
         </div>
       </RegisterImg>
