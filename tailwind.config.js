@@ -13,7 +13,8 @@ module.exports = withMT({
         primary: "#7D0BFE",
         light: "#FF9EDB",
         hash: "#5C5663",
-        green: "#3EB876"
+        green: "#3EB876",
+        bgLight: "#D9D9D9",
       },
       screens: {
         phone: "279px",
