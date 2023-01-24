@@ -12,7 +12,7 @@ const Sidebar = () => {
   let location = useLocation();
 
   return (
-    <aside className=" px-4 border-r-[1px] h-screen border-[rgba(0, 0, 0, 0.2)] p-2">
+    <aside className=" px-4 border-r-[1px] bg-white h-screen border-[rgba(0, 0, 0, 0.2)] p-2">
       <div className="text-[#858585] mb-16 text-center py-2">
         <img src={logo} alt="Logo" />
       </div>
@@ -26,6 +26,7 @@ const Sidebar = () => {
             }`}
             onClick={() => {
               setActive("Dashboard");
+
               navigate("/dashboard");
             }}
           >
