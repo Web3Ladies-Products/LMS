@@ -1,17 +1,18 @@
 import React from "react";
 import RegisterImg from "../Components/RegisterImg";
-import SiginIn from "../Components/SiginIn";
+import RestPass from "../Components/ResetPassword/Resetpass";
 
-const Registration = () => {
+
+const RestPassword = () => {
   return (
     <>
       <RegisterImg>
         <div  className="mt-10">
-          <SiginIn />
+          <RestPass />
         </div>
       </RegisterImg>
     </>
   );
 };
 
-export default Registration;
+export default RestPassword;

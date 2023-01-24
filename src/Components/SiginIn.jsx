@@ -12,7 +12,7 @@ const SiginIn = () => {
         <p className='mt-4 text-[18px] mb-12'>Create an account to continue.</p>
         <div className='mobile_l:w-[80%] w-full '>
           <PupleBtn text="Create an account" link="registration"/>
-          <LightBtn text="Sign in"/>
+          <LightBtn text="Sign in" link="/login"/>
           <div className='text-center'> or </div>
           <BtnIcon text="Continue with Google" icon={Google}/>
         </div>
