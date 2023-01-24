@@ -8,14 +8,14 @@ import CurricuTab from '../Components/Curriculum/CurricuTab';
 const Curriculum = () => {
   return (
     <Row>
-    <Col xs={24} sm={24} md={24} lg={20} xl={20} className="p-8">
-        <div className=' ' >
+    <Col xs={24} sm={24} md={24} lg={20} xl={20} className="p-6">
+        <div className='' >
             <p className='font-[700] text-[24px]'>Week 1</p>
-            <div className='p-5'>
-                <div className='my-5'>
+            <div className='p-3 xl:shadow-lg shadow-none xl:w-fit'>
+                <div className='my-5 ml-3'>
                     <img className='' src={img} alt="img" />
                 </div>
-                <p className='font-[700] text-[24px] mb-5'>Blockchain Development</p>
+                <p className='font-[700] text-[24px] ml-4 mb-5'>Blockchain Development</p>
                 <CurricuTab />
             </div>
          
