@@ -1,18 +1,13 @@
 import React from "react";
-import RegisterImg from "../Components/RegisterImg";
 import ChangePass from "../Components/ChangePassword/ChangePass";
-
+import { RegImg } from "../Components";
 
 const ChangePassword = () => {
   return (
-    <>
-      <RegisterImg>
-        <div  className="mt-10">
-          <ChangePass />
-        </div>
-      </RegisterImg>
-    </>
+    <div className="mt-10">
+      <ChangePass />
+    </div>
   );
 };
 
-export default ChangePassword;
+export default RegImg(ChangePassword);

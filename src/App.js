@@ -1,6 +1,6 @@
 import React from "react";
-import { DatePicker } from "antd";
-import { Routes, Route } from 'react-router-dom'
+
+import { Routes, Route } from "react-router-dom";
 import Registration from "./Pages/Registration";
 import CreateAccount from "./Pages/CreateAccount";
 import Curriculum from "./Pages/Curriculum";
@@ -9,6 +9,7 @@ import ChangePassword from "./Pages/ChangePassword";
 import ChangePassSuccess from "./Pages/ChangePassSuccess";
 import RestPassword from "./Pages/ResetPassword";
 import ResetPassSuccess from "./Pages/ResetPassSuccess";
+import { Classroom, Dashboard, Grades, Project } from "./Pages";
 
 const App = () => {
   return (
@@ -22,6 +23,14 @@ const App = () => {
         <Route path="curriculum" element={ <Curriculum /> } />
         <Route path="resetpassword" element={ <RestPassword /> } />
         <Route path="paswordsuccess" element={ <ResetPassSuccess /> } />
+        <Route path="/" element={<Registration />} />
+        <Route path="registration" element={<CreateAccount />} />
+
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="projects" element={<Project />} />
+        <Route path="grades" element={<Grades />} />
+        <Route path="classroom" element={<Classroom />} />
+        <Route path="curriculum" element={<Curriculum />} />
       </Routes>
     </div>
   );

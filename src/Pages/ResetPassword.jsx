@@ -1,18 +1,13 @@
 import React from "react";
-import RegisterImg from "../Components/RegisterImg";
 import RestPass from "../Components/ResetPassword/Resetpass";
-
+import { RegImg } from "../Components";
 
 const RestPassword = () => {
   return (
-    <>
-      <RegisterImg>
-        <div  className="mt-10">
-          <RestPass />
-        </div>
-      </RegisterImg>
-    </>
+    <div className="mt-10">
+      <RestPass />
+    </div>
   );
 };
 
-export default RestPassword;
+export default RegImg(RestPassword);
