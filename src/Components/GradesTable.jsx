@@ -7,7 +7,7 @@ const table = {
   content: [
     {
       desc: "Create non-custodial wallet (Metamask; Trust wallet; Rainbow; Binance chain wallet) [Personal wallet]",
-      statusSucc: "Completed",
+      status: "Completed",
       due: "Oct 16  11:59 PM WAT",
       wieght: "---",
       grade: "A",
@@ -15,7 +15,7 @@ const table = {
     },
     {
       desc: "Create non-custodial wallet (Metamask; Trust wallet; Rainbow; Binance chain wallet) [Personal wallet]",
-      statusFail: "Pending",
+      status: "Pending",
       due: "Oct 16  11:59 PM WAT",
       wieght: "---",
       grade: "-",
@@ -23,7 +23,7 @@ const table = {
     },
     {
       desc: "Create non-custodial wallet (Metamask; Trust wallet; Rainbow; Binance chain wallet) [Personal wallet]",
-      statusFail: "Pending",
+      status: "Pending",
       due: "Oct 16  11:59 PM WAT",
       wieght: "---",
       grade: "-",
@@ -52,16 +52,16 @@ const GradesTable = () => {
       </Row>
 
       {table?.content?.map(
-        ({ id, desc, statusFail, statusSucc, due, wieght, grade }) => (
+        ({ id, desc, status, due, wieght, grade }) => (
       <Row key={id} className="py-2 pl-2 border-b-[1.5px] border-[#858585] ">
         <Col xs={8} sm={8} md={8} lg={12} xl={12} className="font-[500]">{desc}</Col>
         <Col xs={4} sm={4} md={4} lg={3} xl={3} className="my-auto">
             <div 
                 className={`m-auto w-fit p-2  ${
-                statusSucc 
+                status === "Completed" 
                   ? "bg-[#F8F2FF] text-[#7D0BFE]"
                   : "bg-[#F8F2FF] text-[red]"}`}
-            > {statusFail} {statusSucc}
+            > {status}
             </div></Col>
         <Col xs={4} sm={4} md={4} lg={3} xl={3} className="my-auto">{due}</Col>
         <Col xs={4} sm={4} md={4} lg={3} xl={3} className="my-auto">{wieght}</Col>
