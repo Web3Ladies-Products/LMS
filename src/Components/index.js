@@ -4,3 +4,5 @@ export { default as PageHoc } from "./PageHoc";
 export { default as TotalPointCard } from "./TotalPointCard";
 export { default as TracksCard } from "./TracksCard";
 export { default as AssignmentCard } from "./AssignmentCard";
+export { default as RegImg } from "./RegImg";
+export { default as GradesTable } from "./GradesTable";
