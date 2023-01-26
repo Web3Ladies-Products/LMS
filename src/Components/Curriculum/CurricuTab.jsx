@@ -6,7 +6,6 @@ import AssContent from "./AssContent";
 import WorkContent from "./WorkContent";
 
 
-
 const CurricuTab = () => {
   return (
     <>
