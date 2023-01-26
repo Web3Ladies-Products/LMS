@@ -9,7 +9,7 @@ import ChangePassword from "./Pages/ChangePassword";
 import ChangePassSuccess from "./Pages/ChangePassSuccess";
 import RestPassword from "./Pages/ResetPassword";
 import ResetPassSuccess from "./Pages/ResetPassSuccess";
-import { Classroom, Dashboard, Grades, Project } from "./Pages";
+import { Settings, Classroom, Dashboard, Grades, Project } from "./Pages";
 
 const App = () => {
   return (
@@ -31,6 +31,7 @@ const App = () => {
         <Route path="grades" element={<Grades />} />
         <Route path="classroom" element={<Classroom />} />
         <Route path="curriculum" element={<Curriculum />} />
+        <Route path="settings" element={<Settings />} />
       </Routes>
     </div>
   );

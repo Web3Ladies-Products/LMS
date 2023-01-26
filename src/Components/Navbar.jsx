@@ -1,8 +1,10 @@
 import React from "react";
 import { FaUserCircle, FaCaretDown } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { RiSettings2Line } from "react-icons/ri"
 import { useState } from "react";
 import { profileimage } from "../assets";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -42,15 +44,19 @@ const Navbar = () => {
         </button>
         {showDropdown && (
           <div className="absolute right-5 top-10 mt-2 bg-white rounded-lg py-2">
-            <a href="#" className="block px-4 py-2 text-gray-800">
+            <Link to="#" className="block px-4 py-2 text-gray-800">
               Profile
-            </a>
-            <a href="#" className="block px-4 py-2 text-gray-800">
+            </Link>
+            <Link to="/settings" className="flex px-4 py-2 text-gray-800 hover:bg-blue-gray-50">
+              <RiSettings2Line
+                size={24}
+                className=" text-lg mr-2 text-gray-800"
+              />
               Settings
-            </a>
-            <a href="#" className="block px-4 py-2 text-gray-800">
+            </Link>
+            <Link to="#" className="block px-4 py-2 text-gray-800">
               Logout
-            </a>
+            </Link>
           </div>
         )}
       </div>
