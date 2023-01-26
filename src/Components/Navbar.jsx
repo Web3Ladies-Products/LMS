@@ -7,6 +7,12 @@ import { profileimage } from "../assets";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [notifications, setNotifications] = useState([
+    { id: 1, text: "You have a new assignment." },
+    { id: 2, text: "You have a new assignment." },
+    { id: 3, text: "You have a new assignment." },
+  ]);
 
   return (
     <nav className="bg-white py-10 border-b-[1px] border-[rgba(0, 0, 0, 0.2)] px-10 flex gap-6 items-center justify-end h-16">
@@ -14,8 +20,41 @@ const Navbar = () => {
         <IoMdNotificationsOutline
           size={24}
           className=" text-lg mr-4 text-gray-800"
+          onClick={() => setShowNotifications(!showNotifications)}
         />
         <span className=" absolute top-1 right-0 bg-red-500 rounded-full h-2 w-2"></span>
+        {showNotifications && (
+          <div className="absolute w-[287px]  md:w-[487px] -right-50 md:-right-40 lg:right-0 mt-2 py-[19px] px-[22px] bg-white rounded-md shadow-md">
+            <div className="overflow-y-auto scrollbar-hide max-h-64">
+              <h3 className="text-base font-bold">Notification</h3>
+              <div className="mt-3">
+                {notifications.map((notification) => (
+                  <div
+                    key={notification.id}
+                    className="py-[10px] flex items-center gap-2"
+                  >
+                    <div className="w-[6px] bg-[#7D0BFE] rounded-full h-[6px]"></div>
+                    <p>{notification.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4">
+                <h3 className="text-base font-bold">Announcements</h3>
+                <div className="mt-3">
+                  {notifications.map((notification) => (
+                    <div
+                      key={notification.id}
+                      className="py-[10px] flex items-center gap-2"
+                    >
+                      <div className="w-[6px] bg-[#7D0BFE] rounded-full h-[6px]"></div>
+                      <p>{notification.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <div>
         <button className="text-[#3EB876] rounded border-[1px] border-[#afdbc5] px-5 py-[10px] bg-[#ECF8F2] ">

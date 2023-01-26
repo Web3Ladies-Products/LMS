@@ -10,7 +10,11 @@ const RegImg = (WrappedComponent) => {
     return (
       <Row>
         <Col xs={0} sm={0} md={0} lg={12} xl={10} className="h-[100vh]">
-          <img src={onboardingLogo} alt="logo" className="h-full w-full " />
+          <img
+            src={onboardingLogo}
+            alt="logo"
+            className="h-full object-cover w-full "
+          />
         </Col>
         <Col xs={24} sm={24} md={24} lg={12} xl={14} className="h-[100vh] flex">
           <div className=" w-[90%] tablet:w-[450px] laptop:w-[500px] mt-[6vh] mx-auto">

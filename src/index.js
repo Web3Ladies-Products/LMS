@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@material-tailwind/react";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
-
+import AppStateContext from "./context/AppStateContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +15,9 @@ root.render(
     <BrowserRouter>
       <ChakraProvider theme={theme}>
         <ThemeProvider>
-          <App />
+          <AppStateContext>
+            <App />
+          </AppStateContext>
         </ThemeProvider>
       </ChakraProvider>
     </BrowserRouter>
