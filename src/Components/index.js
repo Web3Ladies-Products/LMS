@@ -6,3 +6,5 @@ export { default as TracksCard } from "./TracksCard";
 export { default as AssignmentCard } from "./AssignmentCard";
 export { default as RegImg } from "./RegImg";
 export { default as GradesTable } from "./GradesTable";
+export { default as RecentRecording } from "./RecentRecording";
+export { default as VideoCard } from "./VideoCard";

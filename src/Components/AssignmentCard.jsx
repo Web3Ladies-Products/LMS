@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AssignmentCard = ({ title, status, url, hasSubmitted }) => {
   return (
-    <div className="px-6 bg-white py-4 gap-4 md:gap-20 lg:gap-40 flex items-center">
+    <div className="px-6 w-full bg-white flex-col md:flex-row py-4 gap-4 justify-between  flex md:items-center">
       <div className="flex items-center gap-2">
         <span className="bg-[#F3E9FE] rounded-full w-[6px] h-[6px]"></span>
         <p>{title}</p>

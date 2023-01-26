@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TracksCard = ({
   trackImage,
@@ -9,8 +10,14 @@ const TracksCard = ({
   mentees,
   isEvicted,
 }) => {
+  const navigate = useNavigate();
   return (
-    <div className="relative rounded-2xl overflow-hidden w-[302px] p-4 bg-white">
+    <div
+      onClick={() => {
+        navigate("/cohort/34");
+      }}
+      className="relative cursor-pointer rounded-2xl overflow-hidden w-[302px] p-4 bg-white"
+    >
       {status === "Evited" && (
         <div className="bg-[#FFFFFF] z-50 absolute inset-0 opacity-50"></div>
       )}

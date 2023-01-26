@@ -6,7 +6,7 @@ const PageHoc = (WrappedComponent) => {
   return function (props) {
     return (
       <div className="flex bg-[#fafafa]">
-        <div className="w-[261px]">
+        <div className="w-[100px] lg:w-[261px]">
           <Sidebar />
         </div>
         <div className="w-full">

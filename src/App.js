@@ -9,20 +9,20 @@ import ChangePassword from "./Pages/ChangePassword";
 import ChangePassSuccess from "./Pages/ChangePassSuccess";
 import RestPassword from "./Pages/ResetPassword";
 import ResetPassSuccess from "./Pages/ResetPassSuccess";
-import { Classroom, Dashboard, Grades, Project } from "./Pages";
+import { Classroom, CohortClass, Dashboard, Grades, Project } from "./Pages";
 
 const App = () => {
   return (
     <div className="">
       <Routes>
-        <Route path="/" element={ <Registration /> } />
-        <Route path="registration" element={ <CreateAccount /> } />
-        <Route path="login" element={ <SignIn /> } />
-        <Route path="changepassword" element={ <ChangePassword /> } />
-        <Route path="passwordchanged" element={ <ChangePassSuccess /> } />
-        <Route path="curriculum" element={ <Curriculum /> } />
-        <Route path="resetpassword" element={ <RestPassword /> } />
-        <Route path="paswordsuccess" element={ <ResetPassSuccess /> } />
+        <Route path="/" element={<Registration />} />
+        <Route path="registration" element={<CreateAccount />} />
+        <Route path="login" element={<SignIn />} />
+        <Route path="changepassword" element={<ChangePassword />} />
+        <Route path="passwordchanged" element={<ChangePassSuccess />} />
+        <Route path="curriculum" element={<Curriculum />} />
+        <Route path="resetpassword" element={<RestPassword />} />
+        <Route path="paswordsuccess" element={<ResetPassSuccess />} />
         <Route path="/" element={<Registration />} />
         <Route path="registration" element={<CreateAccount />} />
 
@@ -31,6 +31,7 @@ const App = () => {
         <Route path="grades" element={<Grades />} />
         <Route path="classroom" element={<Classroom />} />
         <Route path="curriculum" element={<Curriculum />} />
+        <Route path="cohort/:cohortId" element={<CohortClass />} />
       </Routes>
     </div>
   );

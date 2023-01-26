@@ -5,9 +5,10 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { useState } from "react";
 import { logo } from "../assets";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAppStateContent } from "../context/AppStateContext";
 
 const Sidebar = () => {
-  const [active, setActive] = useState("Dashboard");
+  const { active, setActive } = useAppStateContent();
   const navigate = useNavigate();
   let location = useLocation();
 
@@ -19,57 +20,60 @@ const Sidebar = () => {
       <nav>
         <ul className="flex flex-col border-b-[1px] border-[rgba(0, 0, 0, 0.2)]">
           <li
-            className={`text-[#858585]  py-[17px] flex items-center rounded cursor-pointer px-4 ${
+            className={` flex items-center rounded cursor-pointer py-[17px] px-4 ${
               location.pathname === "/dashboard"
                 ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                : ""
+                : "text-[#858585]"
             }`}
             onClick={() => {
               setActive("Dashboard");
-
               navigate("/dashboard");
             }}
           >
-            <MdOutlineDashboard size={24} className="mr-2" /> Dashboard
+            <MdOutlineDashboard size={24} className="mr-2" />{" "}
+            <span className="hidden lg:block"> Dashboard</span>
           </li>
           <li
-            className={`text-[#858585] flex items-center rounded cursor-pointer py-[17px] px-4 ${
+            className={` flex items-center rounded cursor-pointer py-[17px] px-4 ${
               location.pathname === "/projects"
                 ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                : ""
+                : "text-[#858585]"
             }`}
             onClick={() => {
               setActive("Projects");
               navigate("/projects");
             }}
           >
-            <BiRocket size={24} className="mr-2" /> Projects
+            <BiRocket size={24} className="mr-2" />{" "}
+            <span className="hidden lg:block"> Projects</span>
           </li>
           <li
-            className={`text-[#858585] flex items-center rounded cursor-pointer py-[17px] px-4 ${
+            className={` flex items-center rounded cursor-pointer py-[17px] px-4 ${
               location.pathname === "/grades"
                 ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                : ""
+                : "text-[#858585]"
             }`}
             onClick={() => {
               setActive("Grades");
               navigate("/grades");
             }}
           >
-            <BsStar size={24} className="mr-2" /> Grades
+            <BsStar size={24} className="mr-2" />{" "}
+            <span className="hidden lg:block">Grades</span>
           </li>
           <li
-            className={`text-[#858585] mb-4 flex items-center rounded cursor-pointer py-[17px] px-4 ${
+            className={` mb-4 flex items-center rounded cursor-pointer py-[17px] px-4 ${
               location.pathname === "/classroom"
                 ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                : ""
+                : "text-[#858585]"
             }`}
             onClick={() => {
               setActive("Classroom");
               navigate("/classroom");
             }}
           >
-            <BsPlayBtn size={24} className="mr-2" /> Classroom
+            <BsPlayBtn size={24} className="mr-2" />{" "}
+            <span className="hidden lg:block">Classroom</span>
             <button className="ml-auto">
               <i className="fas fa-caret-down" />
             </button>
@@ -81,13 +85,15 @@ const Sidebar = () => {
             className={` py-[17px] flex items-center rounded cursor-pointer px-4 text-[#7D0BFE]`}
             onClick={() => {}}
           >
-            <BsSlack size={24} className="mr-2" /> Go to slack
+            <BsSlack size={24} className="mr-2" />{" "}
+            <span className="hidden lg:block">Go to slack</span>
           </li>
           <li
             className={`text-[#858585] flex items-center rounded cursor-pointer py-[17px] px-4 `}
             onClick={() => {}}
           >
-            <HiOutlineLogout size={24} className="mr-2" /> Logout
+            <HiOutlineLogout size={24} className="mr-2" />{" "}
+            <span className="hidden lg:block">Logout</span>
           </li>
         </ul>
       </nav>
