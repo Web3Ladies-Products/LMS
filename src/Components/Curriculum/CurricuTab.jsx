@@ -10,7 +10,7 @@ const CurricuTab = () => {
   return (
     <>
       <Tabs>
-        <TabList border="2px solid bgLight">
+        <TabList border="2px solid bgLight " className="w-[924px]">
           <Tab mr={{md:"0", lg:"4"}}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
           Curriculum
             </Tab>

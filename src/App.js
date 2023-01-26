@@ -10,7 +10,7 @@ import ChangePassSuccess from "./Pages/ChangePassSuccess";
 import RestPassword from "./Pages/ResetPassword";
 import ResetPassSuccess from "./Pages/ResetPassSuccess";
 
-import { Settings, Classroom, Dashboard, Grades, Project } from "./Pages";
+import { Settings, Classroom, Dashboard, Grades, Project, CohortClass } from "./Pages";
 
 
 const App = () => {
@@ -32,9 +32,8 @@ const App = () => {
         <Route path="projects" element={<Project />} />
         <Route path="grades" element={<Grades />} />
         <Route path="classroom" element={<Classroom />} />
-        <Route path="curriculum" element={<Curriculum />}
-        <Route path="settings" element={<Settings />} />
-
+        <Route path="curriculum" element={<Curriculum />}/>
+        <Route path="settings" element={<Settings />}/>
         <Route path="cohort/:cohortId" element={<CohortClass />} />
 
       </Routes>
