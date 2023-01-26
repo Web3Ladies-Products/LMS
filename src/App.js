@@ -10,7 +10,7 @@ import ChangePassSuccess from "./Pages/ChangePassSuccess";
 import RestPassword from "./Pages/ResetPassword";
 import ResetPassSuccess from "./Pages/ResetPassSuccess";
 
-import { Settings, Classroom, Dashboard, Grades, Project } from "./Pages";
+import { Settings, Classroom, Dashboard, Grades, Project, CohortClass } from "./Pages";
 
 
 const App = () => {
