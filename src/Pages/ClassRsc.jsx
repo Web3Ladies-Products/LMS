@@ -2,8 +2,8 @@ import React from "react";
 import { PageHoc } from "../Components";
 import Curriculum from "../Components/Curriculum/Curriculum";
 
-const Classroom = () => {
-  return <Curriculum/>;
+const ClassRsc = () => {
+  return <div>ygf</div>;
 };
 
-export default PageHoc(Classroom);
+export default PageHoc(ClassRsc);
