@@ -3,10 +3,10 @@ import RingBtn from '../../Common/Button/RingBtn'
 
 const CurrContent = () => {
   return (
-    <div className="w-[200px]">
+    <div className="w-fit">
       <p className="text-[18px] font-[700] my-3">Module One </p>
       <p className="text-[16px] font-[600] ">Week 1: DeFI Exploration</p>
-      <p className="my-2 w-[800px]">
+      <p className="my-2 ">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus arcu
         pulvinar lacus neque, tempus quam. Nec, amet a, nulla nunc amet purus.
         Vel quam vel montes, in gravida lectus. Lorem ipsum dolor sit amet,
