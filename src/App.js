@@ -10,9 +10,20 @@ import ChangePassSuccess from "./Pages/ChangePassSuccess";
 import RestPassword from "./Pages/ResetPassword";
 import ResetPassSuccess from "./Pages/ResetPassSuccess";
 
-import { Settings, Classroom, Dashboard, Grades, Project, CohortClass } from "./Pages";
+import {
+  Settings,
+  Classroom,
+  Dashboard,
+  Grades,
+  Project,
+  CohortClass,
+  Assignment,
+  Track,
+  Module,
+  Group,
+  Notification,
+} from "./Pages";
 import ClassRsc from "./Pages/ClassRsc";
-
 
 const App = () => {
   return (
@@ -26,17 +37,22 @@ const App = () => {
         <Route path="resources" element={<ClassRsc />} />
         <Route path="resetpassword" element={<RestPassword />} />
         <Route path="paswordsuccess" element={<ResetPassSuccess />} />
-     
+
         <Route path="registration" element={<CreateAccount />} />
 
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="projects" element={<Project />} />
         <Route path="grades" element={<Grades />} />
         <Route path="classroom" element={<Classroom />} />
-     
-        <Route path="settings" element={<Settings />}/>
-        <Route path="cohort/:cohortId" element={<CohortClass />} />
 
+        <Route path="assignments" element={<Assignment />} />
+        <Route path="tracks" element={<Track />} />
+        <Route path="modules" element={<Module />} />
+        <Route path="groups" element={<Group />} />
+        <Route path="notification" element={<Notification />} />
+
+        <Route path="settings" element={<Settings />} />
+        <Route path="cohort/:cohortId" element={<CohortClass />} />
       </Routes>
     </div>
   );

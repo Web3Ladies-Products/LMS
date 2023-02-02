@@ -1,84 +1,125 @@
 import { BsSlack, BsPlayBtn, BsStar } from "react-icons/bs";
-import { BiRocket } from "react-icons/bi";
-import { MdOutlineDashboard } from "react-icons/md";
+import { BiRocket, BiUser } from "react-icons/bi";
+import {
+  MdOutlineDashboard,
+  MdWindow,
+  MdOutlineAssignment,
+} from "react-icons/md";
+import { RxDragHandleDots2 } from "react-icons/rx";
 import { HiOutlineLogout } from "react-icons/hi";
 import { useState } from "react";
 import { logo } from "../assets";
+import { IoMdArrowDropdown, IoMdNotificationsOutline } from "react-icons/io";
+import { GiSpiderWeb } from "react-icons/gi";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAppStateContent } from "../context/AppStateContext";
+import NavigateButton from "./sidebar/NavigateButton";
 
 const Sidebar = () => {
-  const { active, setActive } = useAppStateContent();
+  const { active, setActive, isAdmin } = useAppStateContent();
   const navigate = useNavigate();
   let location = useLocation();
 
   return (
-    <aside className=" px-4 border-r-[1px] bg-white h-screen border-[rgba(0, 0, 0, 0.2)] p-2">
+    <aside className=" px-4 border-r-[1px] bg-white min-h-screen border-[rgba(0, 0, 0, 0.2)] p-2">
       <div className="text-[#858585] mb-16 text-center py-2">
         <img src={logo} alt="Logo" />
       </div>
       <nav>
-        <ul className="flex flex-col border-b-[1px] border-[rgba(0, 0, 0, 0.2)]">
-          <li
-            className={` flex items-center rounded cursor-pointer py-[17px] px-4 ${
-              location.pathname === "/dashboard"
-                ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                : "text-[#858585]"
-            }`}
-            onClick={() => {
-              setActive("Dashboard");
-              navigate("/dashboard");
-            }}
-          >
-            <MdOutlineDashboard size={24} className="mr-2" />{" "}
-            <span className="hidden lg:block"> Dashboard</span>
-          </li>
-          <li
-            className={` flex items-center rounded cursor-pointer py-[17px] px-4 ${
-              location.pathname === "/projects"
-                ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                : "text-[#858585]"
-            }`}
-            onClick={() => {
-              setActive("Projects");
-              navigate("/projects");
-            }}
-          >
-            <BiRocket size={24} className="mr-2" />{" "}
-            <span className="hidden lg:block"> Projects</span>
-          </li>
-          <li
-            className={` flex items-center rounded cursor-pointer py-[17px] px-4 ${
-              location.pathname === "/grades"
-                ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                : "text-[#858585]"
-            }`}
-            onClick={() => {
-              setActive("Grades");
-              navigate("/grades");
-            }}
-          >
-            <BsStar size={24} className="mr-2" />{" "}
-            <span className="hidden lg:block">Grades</span>
-          </li>
-          <li
-            className={` mb-4 flex items-center rounded cursor-pointer py-[17px] px-4 ${
-              location.pathname === "/classroom"
-                ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                : "text-[#858585]"
-            }`}
-            onClick={() => {
-              setActive("Classroom");
-              navigate("/classroom");
-            }}
-          >
-            <BsPlayBtn size={24} className="mr-2" />{" "}
-            <span className="hidden lg:block">Classroom</span>
-            <button className="ml-auto">
-              <i className="fas fa-caret-down" />
-            </button>
-          </li>
-        </ul>
+        {isAdmin ? (
+          <ul>
+            <NavigateButton
+              url="/dashboard"
+              text="Dashboard"
+              icon={<MdOutlineDashboard size={24} className="mr-2" />}
+            />
+
+            <NavigateButton
+              url="/cohort-bootcamp"
+              text="Cohort & Bootcamp"
+              icon={<GiSpiderWeb size={24} className="mr-2" />}
+            />
+            <li
+              className={`flex items-center rounded cursor-pointer py-[17px] px-4 ${
+                location.pathname === "/users"
+                  ? "bg-[#F8F2FF] text-[#7D0BFE]"
+                  : "text-[#858585]"
+              }`}
+              // onClick={() => {
+              //   setActive("Classroom");
+              //   navigate("/classroom");
+              // }}
+            >
+              <BiUser size={24} className="mr-2" />{" "}
+              <span className="hidden lg:block">Users</span>
+              <button className="ml-auto">
+                <IoMdArrowDropdown />
+              </button>
+            </li>
+            <NavigateButton
+              url="/tracks"
+              text="Tracks"
+              icon={<BiRocket size={24} className="mr-2" />}
+            />
+            <NavigateButton
+              url="/modules"
+              text="Modules"
+              icon={<MdWindow size={24} className="mr-2" />}
+            />
+            <NavigateButton
+              url="/assignments"
+              text="Assignments"
+              icon={<MdOutlineAssignment size={24} className="mr-2" />}
+            />
+            <NavigateButton
+              url="/groups"
+              text="Groups"
+              icon={<RxDragHandleDots2 size={24} className="mr-2" />}
+            />
+            <NavigateButton
+              url="/notification"
+              text="Notification"
+              icon={<IoMdNotificationsOutline size={24} className="mr-2" />}
+            />
+          </ul>
+        ) : (
+          <ul className="flex flex-col border-b-[1px] border-[rgba(0, 0, 0, 0.2)]">
+            <NavigateButton
+              url="/dashboard"
+              text="Dashboard"
+              icon={<MdOutlineDashboard size={24} className="mr-2" />}
+            />
+            <NavigateButton
+              url="/projects"
+              text="Projects"
+              icon={<BiRocket size={24} className="mr-2" />}
+            />
+
+            <NavigateButton
+              url="/grades"
+              text="Grades"
+              icon={<BsStar size={24} className="mr-2" />}
+            />
+
+            <li
+              className={` mb-4 flex items-center rounded cursor-pointer py-[17px] px-4 ${
+                location.pathname === "/classroom"
+                  ? "bg-[#F8F2FF] text-[#7D0BFE]"
+                  : "text-[#858585]"
+              }`}
+              // onClick={() => {
+              //   setActive("Classroom");
+              //   navigate("/classroom");
+              // }}
+            >
+              <BsPlayBtn size={24} className="mr-2" />{" "}
+              <span className="hidden lg:block">Classroom</span>
+              <button className="ml-auto">
+                <IoMdArrowDropdown />
+              </button>
+            </li>
+          </ul>
+        )}
 
         <ul className="flex mt-4 flex-col">
           <li
