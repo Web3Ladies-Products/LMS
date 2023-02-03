@@ -5,8 +5,8 @@ import Registration from "./Pages/Registration";
 import CreateAccount from "./Pages/CreateAccount";
 
 import SignIn from "./Pages/Signin";
-import ChangePassword from "./Pages/ChangePassword";
-import ChangePassSuccess from "./Pages/ChangePassSuccess";
+import ChangePassword from "./Pages/Mentees/ChangePassword";
+import ChangePassSuccess from "./Pages/Mentees/ChangePassSuccess";
 import RestPassword from "./Pages/ResetPassword";
 import ResetPassSuccess from "./Pages/ResetPassSuccess";
 

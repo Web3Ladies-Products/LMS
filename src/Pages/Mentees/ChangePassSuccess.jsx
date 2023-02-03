@@ -1,6 +1,6 @@
 import React from "react";
-import ChangeSucces from "../Components/ChangePassword/ChangeSucces";
-import { RegImg } from "../Components";
+import ChangeSucces from "../../Components/ChangePassword/ChangeSucces";
+import { RegImg } from "../../Components";
 
 const ChangePassSuccess = () => {
   return (

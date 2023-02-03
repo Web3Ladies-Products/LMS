@@ -29,6 +29,5 @@ module.exports = withMT({
   },
   plugins: [
     require("tailwind-scrollbar-hide"),
-    // ...
   ],
 });

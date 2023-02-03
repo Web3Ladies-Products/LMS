@@ -1,5 +1,5 @@
 import React from "react";
-import { GradesTable, PageHoc } from "../Components";
+import { GradesTable, PageHoc } from "../../Components";
 
 
 const Grades = () => {
