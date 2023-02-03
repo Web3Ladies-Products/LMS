@@ -1,5 +1,5 @@
 import React from "react";
-import { PageHoc } from "../Components";
+import { PageHoc } from "../../Components";
 
 const Track = () => {
   return <div>Track</div>;
