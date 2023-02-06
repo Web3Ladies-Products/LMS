@@ -25,6 +25,7 @@ import {
   SingleGroup,
 } from "./Pages";
 import ClassRsc from "./Pages/ClassRsc";
+import TracksDetails from "./Pages/Admin/TracksDetails";
 
 const App = () => {
   return (
@@ -48,6 +49,7 @@ const App = () => {
 
         <Route path="assignments" element={<Assignment />} />
         <Route path="tracks" element={<Track />} />
+        <Route path="tracks/:id" element={<TracksDetails />} />
         <Route path="modules" element={<Module />} />
         <Route path="groups" element={<Group />} />
         <Route path="groups/:groupId" element={<SingleGroup />} />
