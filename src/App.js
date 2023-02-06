@@ -22,6 +22,7 @@ import {
   Module,
   Group,
   Notification,
+  SingleGroup,
 } from "./Pages";
 import ClassRsc from "./Pages/ClassRsc";
 
@@ -49,6 +50,7 @@ const App = () => {
         <Route path="tracks" element={<Track />} />
         <Route path="modules" element={<Module />} />
         <Route path="groups" element={<Group />} />
+        <Route path="groups/:groupId" element={<SingleGroup />} />
         <Route path="notification" element={<Notification />} />
 
         <Route path="settings" element={<Settings />} />

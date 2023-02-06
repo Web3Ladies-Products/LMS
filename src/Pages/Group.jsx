@@ -1,8 +1,8 @@
 import React from "react";
-import { PageHoc } from "../Components";
+import { PageHoc, GroupSection } from "../Components";
 
 const Group = () => {
-  return <div>Group</div>;
+  return <GroupSection />;
 };
 
 export default PageHoc(Group);
