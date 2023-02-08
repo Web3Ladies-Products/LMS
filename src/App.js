@@ -23,6 +23,8 @@ import {
   Group,
   Notification,
   SingleGroup,
+  Mentors,
+  Mentees,
 } from "./Pages";
 import ClassRsc from "./Pages/ClassRsc";
 import TracksDetails from "./Pages/Admin/TracksDetails";
@@ -54,6 +56,9 @@ const App = () => {
         <Route path="groups" element={<Group />} />
         <Route path="groups/:groupId" element={<SingleGroup />} />
         <Route path="notification" element={<Notification />} />
+
+        <Route path="mentors" element={<Mentors />} />
+        <Route path="mentees" element={<Mentees />} />
 
         <Route path="settings" element={<Settings />} />
         <Route path="cohort/:cohortId" element={<CohortClass />} />
