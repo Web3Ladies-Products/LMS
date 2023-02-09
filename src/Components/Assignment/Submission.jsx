@@ -63,7 +63,7 @@ const Submission = ({ assignmentList }) => {
             <div className="flex">
             <button 
                 onClick={onClose}
-                className='text-[16px] w-fit ml-auto rounded-md text-white py-2 px-4 my-5 bg-primary'
+                className='text-[16px] w-fit ml-auto rounded-md text-white py-2 px-4 mt-5 bg-primary'
             >
                 Done
             </button>
