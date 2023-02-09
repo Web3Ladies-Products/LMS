@@ -30,9 +30,6 @@ const TrackTab = () => {
           <TabPanel>
             <TMentees />
           </TabPanel>
-          <TabPanel>
-            {/* <WorkContent /> */}
-          </TabPanel>
         </TabPanels>
       </Tabs>
     </>
