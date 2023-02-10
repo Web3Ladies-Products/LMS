@@ -234,3 +234,21 @@ export const assignmentList = [
     time: "12 hours ago",
   },
 ];
+
+export const modulesData = [
+  {
+    id: 1,
+    title: "Module One",
+    theme: "Module theme",
+  },
+  {
+    id: 2,
+    title: "Module Two",
+    theme: "Module theme",
+  },
+  {
+    id: 3,
+    title: "Module Three",
+    theme: "Module theme",
+  },
+];

@@ -3,41 +3,26 @@ import { BsThreeDotsVertical, BsPlusLg } from "react-icons/bs"
 import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const Design = ({ assignmentData }) => {
+const DesignModule = ({ modulesData }) => {
   return (
     <>
-    <Link to="/new/assignments" className="flex gap-2 mb-7 w-fit ml-auto hover:border-b-2 border-primary">
+    <Link to="/new/module" className="flex gap-2 mb-7 w-fit ml-auto hover:border-b-2 border-primary">
     <BsPlusLg className=" my-auto text-primary text-[16px]"/>
     <p className="font-semibold text-primary">Create assignment</p>
     </Link>
     <div className="flex flex-wrap gap-6 ">
-      {assignmentData.map((item) => (
+      {modulesData?.map((item) => (
         <div key={item.id} className="relative rounded-2xl shadow-lg overflow-hidden w-full mobile:w-[302px] p-4 bg-white">
-          <Link to={`/assignments/${item.id}`}  className="relative cursor-pointer">
-            <img
-              src={item.trackImage}
-              className="rounded-lg object-contain"
-              alt=""
-            />
-            <div className="px-[13px] py-[4px] absolute rounded-[23px] right-3 top-3 bg-[#FAFAFACC]">
-              <p
-                className={`font-semibold rounded-md  ${
-                  item.status === "PUBLISHED"
-                    ? " text-primary"
-                    : "text-[#858585]"
-                }`}
-              >
-                {item.status}
-              </p>
-            </div>
-          </Link>
-          <Link to={`/assignments/${item.id}`} className="mt-4 cursor-pointer">
+          <div  className="relative ">
+           
+            <p className="bg-[#F9F9F9] text-[#EEEEEE] text-[120px] text-center font-extrabold  ">{item.id}</p>
+          </div>
+          <div className="">
             <p className="text-black font-semibold text-xl mt-2">{item.title}</p>
-          </Link>
-          <div className="flex justify-between mt-5">
+          </div>
+          <div className="flex justify-between">
             <div className="flex gap-2 text-[#858585] text-[14px]">
-              <p className="text-black my-auto bg-primary w-[6px] h-[6px] rounded-full" />
-              <p className="my-auto">{item.number} submissions</p>
+              <p className="my-auto">{item.theme}</p>
             </div>
             <Menu  >
               <MenuButton
@@ -53,14 +38,14 @@ const Design = ({ assignmentData }) => {
                   fontWeight="semi-bold"
                   _hover={{ color: "red" }}
                 >
-                  Duplicate assignment
+                  Duplicate Module
                 </MenuItem>
                 <MenuItem
                   onClick={() => alert("Kagebunshin")}
                   fontWeight="semi-bold"
                   _hover={{ color: "red" }}
                 >
-                  Delete assignment
+                  Delete Module
                 </MenuItem>
               </MenuList>
             </Menu>
@@ -73,4 +58,4 @@ const Design = ({ assignmentData }) => {
   );
 };
 
-export default Design;
+export default DesignModule;

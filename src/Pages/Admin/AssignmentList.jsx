@@ -32,11 +32,11 @@ const AssignmentList = () => {
             </div>
             <p className='text-[#858585] text-[14px] mt-3 mb-5 font-[400]'><span className="font-semibold">Deadline </span> Nov 4, 11:59 PM GMT WAT</p>
           </div>
-        <TabList border="2px solid bgLight" className="overflow-x-auto overflow-y-hidden h-[44px]" >
-          <Tab mr={{md:"0", lg:"4"}} fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
+               <TabList border="2px solid bgLight" className="overflow-x-auto overflow-y-hidden h-fit" >
+          <Tab mr={{md:"0", lg:"4"}} h="fit-content" fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
           Instruction
             </Tab>
-          <Tab mr={{md:"0", lg:"4"}}  fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
+          <Tab mr={{md:"0", lg:"4"}} h="fit-content"  fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
           Submissions
         </Tab>
         </TabList>

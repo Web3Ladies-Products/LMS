@@ -8,18 +8,20 @@ import { assignmentData } from "../../Data"
 const Assignment = () => {
   return (
     <>
+    <p className="text-[24px] mb-5 font-bold">Assignments</p>
+
       <Tabs pos={"relative"}>
-        <TabList border="2px solid bgLight" className="overflow-x-auto overflow-y-hidden h-[44px]" >
-          <Tab mr={{md:"0", lg:"4"}} fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
+               <TabList border="2px solid bgLight" className="overflow-x-auto overflow-y-hidden h-fit" >
+          <Tab mr={{md:"0", lg:"4"}} h="fit-content" fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
           Product Design
             </Tab>
-          <Tab mr={{md:"0", lg:"4"}}  fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
+          <Tab mr={{md:"0", lg:"4"}}  h="fit-content" fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
           Web Development
         </Tab>
-          <Tab mr={{md:"0", lg:"4"}}  fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
+          <Tab mr={{md:"0", lg:"4"}} h="fit-content"  fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
           Product Management
         </Tab>
-        <Tab mr={{md:"0", lg:"4"}}  fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
+        <Tab mr={{md:"0", lg:"4"}}  h="fit-content" fontSize={"18px"} fontWeight="600" color={"grey"}  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
           Blockchain Development
         </Tab>
         </TabList>
