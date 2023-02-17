@@ -23,8 +23,14 @@ import {
   Group,
   Notification,
   SingleGroup,
+  Mentors,
+  Mentees,
 } from "./Pages";
 import ClassRsc from "./Pages/ClassRsc";
+import TracksDetails from "./Pages/Admin/TracksDetails";
+import NewAssig from "./Pages/Admin/NewAssig";
+import AssignmentList from "./Pages/Admin/AssignmentList";
+import NewModule from "./Pages/Admin/NewModule";
 
 const App = () => {
   return (
@@ -47,11 +53,21 @@ const App = () => {
         <Route path="classroom" element={<Classroom />} />
 
         <Route path="assignments" element={<Assignment />} />
+        <Route path="new/assignments" element={<NewAssig />} />
+        <Route path="assignments/:assignmentId" element={<AssignmentList />} />
+
         <Route path="tracks" element={<Track />} />
+        <Route path="tracks/:id" element={<TracksDetails />} />
+
         <Route path="modules" element={<Module />} />
+        <Route path="new/module" element={<NewModule />} />
+
         <Route path="groups" element={<Group />} />
         <Route path="groups/:groupId" element={<SingleGroup />} />
         <Route path="notification" element={<Notification />} />
+
+        <Route path="mentors" element={<Mentors />} />
+        <Route path="mentees" element={<Mentees />} />
 
         <Route path="settings" element={<Settings />} />
         <Route path="cohort/:cohortId" element={<CohortClass />} />
