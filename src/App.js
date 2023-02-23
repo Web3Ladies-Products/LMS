@@ -31,6 +31,7 @@ import TracksDetails from "./Pages/Admin/TracksDetails";
 import NewAssig from "./Pages/Admin/NewAssig";
 import AssignmentList from "./Pages/Admin/AssignmentList";
 import NewModule from "./Pages/Admin/NewModule";
+import AssignPage from "./Components/Curriculum/AssignPage";
 
 const App = () => {
   return (
@@ -41,7 +42,6 @@ const App = () => {
         <Route path="login" element={<SignIn />} />
         <Route path="changepassword" element={<ChangePassword />} />
         <Route path="passwordchanged" element={<ChangePassSuccess />} />
-        <Route path="resources" element={<ClassRsc />} />
         <Route path="resetpassword" element={<RestPassword />} />
         <Route path="paswordsuccess" element={<ResetPassSuccess />} />
 
@@ -50,7 +50,11 @@ const App = () => {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="projects" element={<Project />} />
         <Route path="grades" element={<Grades />} />
+
         <Route path="classroom" element={<Classroom />} />
+        <Route path="classroom/:id" element={<ClassRsc />} />
+        <Route path="classroom/assignment/:id" element={<AssignPage />} />
+
 
         <Route path="assignments" element={<Assignment />} />
         <Route path="new/assignments" element={<NewAssig />} />

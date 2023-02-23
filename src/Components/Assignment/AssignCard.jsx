@@ -1,18 +1,13 @@
-import React from "react";
+import React from 'react'
 import { BsThreeDotsVertical, BsPlusLg } from "react-icons/bs"
 import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const Design = ({ assignmentData }) => {
+
+export const AssignCard = ({ item }) => {
   return (
-    <>
-    <Link to="/new/assignments" className="flex gap-2 mb-7 w-fit ml-auto hover:border-b-2 border-primary">
-    <BsPlusLg className=" my-auto text-primary text-[16px]"/>
-    <p className="font-semibold text-primary">Create assignment</p>
-    </Link>
-    <div className="flex flex-wrap gap-6 ">
-      {assignmentData.map((item) => (
-        <div key={item.id} className="relative rounded-2xl shadow-lg overflow-hidden w-full mobile:w-[302px] p-4 bg-white">
+    <div>
+         <div className="relative rounded-2xl shadow-lg overflow-hidden w-full mobile:w-[302px] p-4 bg-white">
           <Link to={`/assignments/${item.id}`}  className="relative cursor-pointer">
             <img
               src={item.trackImage}
@@ -66,11 +61,6 @@ const Design = ({ assignmentData }) => {
             </Menu>
           </div>
         </div>
-        // </Link>
-      ))}
     </div>
-    </>
-  );
-};
-
-export default Design;
+  )
+}
