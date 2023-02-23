@@ -8,7 +8,7 @@ const TrackTab = () => {
   return (
     <>
       <Tabs pos={"relative"}>
-               <TabList border="2px solid bgLight" className="overflow-x-auto overflow-y-hidden h-fit" >
+        <TabList border="2px solid bgLight" className="overflow-x-auto overflow-y-hidden h-fit" >
 
           <Tab mr={{md:"0", lg:"4"}} h="fit-content"  _selected={{ color: '#7D0BFE', borderBottom:"2px solid #7D0BFE" }}>
           Detail

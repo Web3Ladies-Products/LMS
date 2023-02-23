@@ -32,6 +32,8 @@ import NewAssig from "./Pages/Admin/NewAssig";
 import AssignmentList from "./Pages/Admin/AssignmentList";
 import NewModule from "./Pages/Admin/NewModule";
 import AssignPage from "./Components/Curriculum/AssignPage";
+import CohortBoot from "./Pages/Admin/CohortBoot";
+import CohortDetails from "./Pages/Admin/CohortDetails";
 
 const App = () => {
   return (
@@ -75,6 +77,9 @@ const App = () => {
 
         <Route path="settings" element={<Settings />} />
         <Route path="cohort/:cohortId" element={<CohortClass />} />
+
+        <Route path="cohort-bootcamp" element={<CohortBoot />} />
+        <Route path="cohort-bootcamp/:id" element={<CohortDetails />} />
       </Routes>
     </div>
   );
