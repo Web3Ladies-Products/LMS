@@ -2,7 +2,7 @@ import React from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { PageHoc } from "../Components";
 import DesignModule from "../Components/Modules/DesignModule"
-import { assignmentData, modulesData } from "../Data"
+import { modulesData } from "../Data"
 
 
 const Module = () => {
@@ -27,16 +27,16 @@ const Module = () => {
 
         <TabPanels mt="20px">
           <TabPanel>
-            <DesignModule modulesData={modulesData} assignmentData={assignmentData} />
+            <DesignModule modulesData={modulesData} />
           </TabPanel>
           <TabPanel>
-            <DesignModule modulesData={modulesData} assignmentData={assignmentData} />
+            <DesignModule modulesData={modulesData} />
           </TabPanel>
           <TabPanel>
-            <DesignModule modulesData={modulesData} assignmentData={assignmentData} />
+            <DesignModule modulesData={modulesData} />
           </TabPanel>
           <TabPanel>
-            <DesignModule modulesData={modulesData} assignmentData={assignmentData} />
+            <DesignModule modulesData={modulesData} />
           </TabPanel>
         </TabPanels>
       </Tabs>

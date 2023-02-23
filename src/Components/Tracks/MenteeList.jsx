@@ -16,6 +16,21 @@ import {
 } from "@chakra-ui/react";
 import { BsThreeDots } from "react-icons/bs";
 
+const header = [
+  {
+    name: "Name"
+  },
+  {
+    name: "Email"
+  },
+  {
+    name: "Track"
+  },
+  {
+    name: "Status"
+  },
+]
+
 function MenteeList({ currentPosts, loading }) {
   if (loading) {
     return <p>Loading...</p>;
@@ -26,11 +41,9 @@ function MenteeList({ currentPosts, loading }) {
         <Table variant="simple">
           <Thead>
             <Tr color="grey">
-              <Th>Name</Th>
-              <Th>Email</Th>
-              <Th>Track</Th>
-              <Th>Status</Th>
-              <Th> </Th>
+              {header.map((item) => (
+                <Th key={item.name}>{item.name}</Th>
+              ))}
             </Tr>
           </Thead>
           <Tbody>

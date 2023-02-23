@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { PageHoc } from "../../Components";
-import Design from "../../Components/Assignment/Design"
+import CardWrapper from "../../Components/Assignment/CardWrapper"
 import { assignmentData } from "../../Data"
 
 
@@ -28,16 +28,16 @@ const Assignment = () => {
 
         <TabPanels mt="20px">
           <TabPanel>
-            <Design assignmentData={assignmentData}/>
+            <CardWrapper assignmentData={assignmentData}/>
           </TabPanel>
           <TabPanel>
-            <Design assignmentData={assignmentData}/>
+            <CardWrapper assignmentData={assignmentData}/>
           </TabPanel>
           <TabPanel>
-            <Design assignmentData={assignmentData}/>
+            <CardWrapper assignmentData={assignmentData}/>
           </TabPanel>
           <TabPanel>
-            <Design assignmentData={assignmentData}/>
+            <CardWrapper assignmentData={assignmentData}/>
           </TabPanel>
         </TabPanels>
       </Tabs>

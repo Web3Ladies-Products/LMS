@@ -1,4 +1,4 @@
-import { tracksImage, pdf, txt } from "../assets";
+import { tracksImage, pdf, txt, BookBtn, PlayBtn } from "../assets";
 
 export const tracksList = [
   {
@@ -252,3 +252,86 @@ export const modulesData = [
     theme: "Module theme",
   },
 ];
+
+export const classReso = [
+  {
+    id: 1,
+    header: "What is a Crypto Wallet?",
+    list: [
+      {
+        id: 1,
+        img: PlayBtn,
+        title: "What is product management?",
+        time: "Video . 5 min "
+      },
+      {
+        id: 2,
+        img: BookBtn,
+        title: "Blockchain Wallet: What It Is, How It Works, Security Issues",
+        time: "Reading . 5 min"
+      },
+    ],
+
+  },
+  {
+    id: 1,
+    header: "What is a Crypto Wallet?",
+    list: [
+      {
+        id: 1,
+        img: PlayBtn,
+        title: "What is product management?",
+        time: "Video . 5 min "
+      },
+      {
+        id: 2,
+        img: BookBtn,
+        title: "Blockchain Wallet: What It Is, How It Works, Security Issues",
+        time: "Reading . 5 min"
+      },
+    ],
+
+  },
+];
+
+export const classAss = {
+    header: [
+      {
+        id: 1,
+        type: "All"
+      },
+      {
+        id: 2,
+        type: "New"
+      },
+      {
+        id: 3,
+        type: "Pending"
+      },
+      {
+        id: 4,
+        type: "Complete"
+      },
+    ],
+    list: [
+      {
+        id: 1,
+        title: "Create custodial wallet (Bundle; Binance; Luno; Buycoins) [Personal wallet]",
+        status: "New",
+        submit: "Submit"
+      },
+      {
+        id: 2,
+        title: "Create non-custodial wallet (Metamask; Trust wallet; Rainbow; Binance chain wallet) [Personal wallet]",
+        status: "Pending",
+        submit: "Submit"
+      },
+      {
+        id: 3,
+        title: "Write a detailed PRD for the product you reseached in the last assignment",
+        status: "Complete",
+        submit: ""
+      },
+    ],
+
+  };
