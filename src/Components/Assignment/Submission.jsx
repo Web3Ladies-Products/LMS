@@ -2,6 +2,7 @@ import React from "react";
 import ModalWrapper from "../../Common/Modal/ModalWrapper";
 import { Box, useDisclosure, Select } from "@chakra-ui/react";
 import { CancelBtn } from "../../assets";
+import SubCard from "./SubCard";
 
 const Submission = ({ assignmentList }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -9,7 +10,8 @@ const Submission = ({ assignmentList }) => {
   return (
     <div>
       <div className="flex flex-wrap justify-around gap-5">
-        {assignmentList.map((item) => (
+        <SubCard assignmentList={assignmentList} onOpen={onOpen}/>
+        {/* {assignmentList.map((item) => (
           <div
             key={item.id}
             onClick={onOpen}
@@ -27,7 +29,7 @@ const Submission = ({ assignmentList }) => {
             </p>
             <p className="text-grey text-[12px]">Submitted 4 hours ago</p>
           </div>
-        ))}
+        ))} */}
 
         <ModalWrapper isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
           <img
