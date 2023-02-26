@@ -21,7 +21,7 @@ import { useAppStateContent } from "../context/AppStateContext";
 import NavigateButton from "./sidebar/NavigateButton";
 
 const Sidebar = () => {
-  const { active, setActive, isAdmin } = useAppStateContent();
+  const { active, setActive, isAdmin, isMentor } = useAppStateContent();
   const [userModal, setUserModal] = useState(false);
   const navigate = useNavigate();
   let location = useLocation();
@@ -32,7 +32,7 @@ const Sidebar = () => {
         <img src={logo} alt="Logo" />
       </div>
       <nav>
-        {isAdmin ? (
+        {isAdmin || isMentor ? (
           <ul>
             <NavigateButton
               url="/dashboard"
@@ -40,54 +40,76 @@ const Sidebar = () => {
               icon={<MdOutlineDashboard size={24} className="mr-2" />}
             />
 
-            <NavigateButton
-              url="/cohort-bootcamp"
-              text="Cohort & Bootcamp"
-              icon={<GiSpiderWeb size={24} className="mr-2" />}
-            />
-            <li
-              className={`flex items-center rounded cursor-pointer py-[17px] px-4 ${
-                active === "Users"
-                  ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                  : "text-[#858585]"
-              }`}
-              onClick={() => {
-                setActive("Users");
-                setUserModal(!userModal);
+            {isMentor ? (
+              <NavigateButton
+                url="/modules"
+                text="Resources"
+                icon={<GiSpiderWeb size={24} className="mr-2" />}
+              />
+            ) : (
+              <NavigateButton
+                url="/cohort-bootcamp"
+                text="Cohort & Bootcamp"
+                icon={<GiSpiderWeb size={24} className="mr-2" />}
+              />
+            )}
+            {!isMentor && (
+              <>
+                <li
+                  className={`flex items-center rounded cursor-pointer py-[17px] px-4 ${
+                    active === "Users"
+                      ? "bg-[#F8F2FF] text-[#7D0BFE]"
+                      : "text-[#858585]"
+                  }`}
+                  onClick={() => {
+                    setActive("Users");
+                    setUserModal(!userModal);
 
-                // navigate("/classroom");
-              }}
-            >
-              <BiUser size={24} className="mr-2" />
+                    // navigate("/classroom");
+                  }}
+                >
+                  <BiUser size={24} className="mr-2" />
 
-              <span className="hidden lg:block">Users</span>
-              <button className="ml-auto">
-                {userModal ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
-              </button>
-            </li>
-            {userModal && (
-              <li className="flex flex-col items-center rounded cursor-pointer py-[12px]">
-                <Link to="/mentees" className={`flex py-2 items-center`}>
-                  <BsDot size={20} />
-                  Mentees
-                </Link>
-                <Link to="/mentors" className="flex">
-                  <BsDot />
-                  Mentors
-                </Link>
-              </li>
+                  <span className="hidden lg:block">Users</span>
+                  <button className="ml-auto">
+                    {userModal ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+                  </button>
+                </li>
+                {userModal && (
+                  <li className="flex flex-col items-center rounded cursor-pointer py-[12px]">
+                    <Link to="/mentees" className={`flex py-2 items-center`}>
+                      <BsDot size={20} />
+                      Mentees
+                    </Link>
+                    <Link to="/mentors" className="flex">
+                      <BsDot />
+                      Mentors
+                    </Link>
+                  </li>
+                )}
+              </>
             )}
 
-            <NavigateButton
-              url="/tracks"
-              text="Tracks"
-              icon={<BiRocket size={24} className="mr-2" />}
-            />
-            <NavigateButton
-              url="/modules"
-              text="Modules"
-              icon={<MdWindow size={24} className="mr-2" />}
-            />
+            {isMentor ? (
+              <NavigateButton
+                url="/mentees"
+                text="Mentees"
+                icon={<BiRocket size={24} className="mr-2" />}
+              />
+            ) : (
+              <NavigateButton
+                url="/tracks"
+                text="Tracks"
+                icon={<BiRocket size={24} className="mr-2" />}
+              />
+            )}
+            {!isMentor && (
+              <NavigateButton
+                url="/modules"
+                text="Modules"
+                icon={<MdWindow size={24} className="mr-2" />}
+              />
+            )}
             <NavigateButton
               url="/assignments"
               text="Assignments"
@@ -98,11 +120,13 @@ const Sidebar = () => {
               text="Groups"
               icon={<RxDragHandleDots2 size={24} className="mr-2" />}
             />
-            <NavigateButton
-              url="/notification"
-              text="Notification"
-              icon={<IoMdNotificationsOutline size={24} className="mr-2" />}
-            />
+            {!isMentor && (
+              <NavigateButton
+                url="/notification"
+                text="Notification"
+                icon={<IoMdNotificationsOutline size={24} className="mr-2" />}
+              />
+            )}
           </ul>
         ) : (
           <ul className="flex flex-col border-b-[1px] border-[rgba(0, 0, 0, 0.2)]">

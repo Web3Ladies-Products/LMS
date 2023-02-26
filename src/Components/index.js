@@ -10,3 +10,4 @@ export { default as RecentRecording } from "./RecentRecording";
 export { default as VideoCard } from "./VideoCard";
 export { default as Announcements } from "./Announcements";
 export { default as GroupSection } from "./GroupSection";
+export { default as MenteesTable } from "./mentees/MenteesTable";
