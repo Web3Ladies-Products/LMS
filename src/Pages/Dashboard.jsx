@@ -100,13 +100,15 @@ const Dashboard = () => {
     <div className="w-full  ">
       <h1 className="text-2xl mb-6 font-bold">Dashboard</h1>
       {!isAdmin && (
-        <div className=" max-w-[1143px]  text-white bg-[#1A1A1A] px-[26px] py-2 sm:py-5 rounded-[8px] flex flex-col md:flex-row justify-between gap-2 md:items-center">
-          <div>
+        <div className=" w-full text-white bg-[#1A1A1A] px-[26px] py-2 sm:py-5 rounded-[8px] flex flex-col md:flex-row justify-between gap-2 md:items-center">
+          <div className="">
             <p>Welcome to Week 3!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p className="break-all">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
           </div>
           <div className="flex justify-between items-center gap-6">
-            <button className="rounded px-8 py-[14px] border-2 border-white">
+            <button className="rounded px-4 py-2 lg:px-8 lg:py-[14px] border-2 border-white">
               Go to class
             </button>
             <IoMdClose className="text-[#858585] cursor-pointer" />

@@ -20,7 +20,7 @@ const Announcements = () => {
           </div>
         </Link>
       </div>
-      <div className="mt-6 bg-white p-6 flex flex-col gap-7 min-h-screen">
+      <div className="mt-6 bg-white p-6 flex flex-col gap-7 items-center min-h-screen">
         {assignmentList.map((item) => (
           <div
             key={item.id}
