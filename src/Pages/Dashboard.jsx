@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Announcements,
   AssignmentCard,
   MenteesTable,
-  Navbar,
   PageHoc,
   RecentRecording,
-  Sidebar,
   TotalPointCard,
   TracksCard,
 } from "../Components";
@@ -14,7 +12,23 @@ import { IoMdClose } from "react-icons/io";
 import { tracksImage } from "../assets";
 import { useAppStateContent } from "../context/AppStateContext";
 import { BsPlusLg } from "react-icons/bs";
+import {
+  Button,
+  Box,
+  Text,
+  useDisclosure,
+  Select,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 import { menteesData } from "../Data";
+import { userImg } from "../assets";
+import OnboardModal from "../Components/OnboardModal";
 const tracksData = [
   {
     id: 1,
@@ -92,12 +106,26 @@ const assignmentData = [
     hasSubmitted: true,
   },
 ];
+
 const Dashboard = () => {
   const [active, setActive] = useState("all");
   const { isAdmin, isMentor } = useAppStateContent();
   const [assignment, setAssignment] = useState(assignmentData);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     onOpen();
+  //   }, 1000);
+  // }, []);
+
   return (
     <div className="w-full  ">
+      <div onClick={onOpen} className="w-fit h-fit mr-auto mt-4">
+        open
+      </div>
+      <OnboardModal />
+     
       <h1 className="text-2xl mb-6 font-bold">Dashboard</h1>
       {!isAdmin && (
         <div className=" w-full text-white bg-[#1A1A1A] px-[26px] py-2 sm:py-5 rounded-[8px] flex flex-col md:flex-row justify-between gap-2 md:items-center">
