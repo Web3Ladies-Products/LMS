@@ -1,19 +1,16 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import {
-    Button,
-    Box,
-    Text,
-    useDisclosure,
-    Select,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-  } from "@chakra-ui/react";
-  import { userImg } from "../assets";
+  Button,
+  Box,
+  Text,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
+import { userImg } from "../assets";
 
 const OnboardModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,10 +23,6 @@ const OnboardModal = () => {
 
   return (
     <div>
-      <div onClick={onOpen} className="w-fit h-fit mr-auto mt-4">
-        open
-      </div>
-
       <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -68,10 +61,6 @@ const OnboardModal = () => {
               </div>
             </Box>
           </ModalBody>
-
-          {/* <ModalFooter>
-            <Button>Show tips</Button>
-          </ModalFooter> */}
         </ModalContent>
       </Modal>
     </div>
