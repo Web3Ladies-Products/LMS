@@ -14,7 +14,7 @@ import playIcon from "./playIcon.svg";
 import CancelBtn from "./CancelBtn.svg";
 import arrowDown from "./arrowDown.svg";
 import FadedPDF from "./FadedPDF.svg";
-
+import mentesPofileImage from "./mentees_profile.png";
 
 export {
   FadedPDF,
@@ -33,4 +33,5 @@ export {
   userImg,
   rightArrow,
   leftArrow,
+  mentesPofileImage,
 };

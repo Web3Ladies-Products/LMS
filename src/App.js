@@ -25,6 +25,7 @@ import {
   SingleGroup,
   Mentors,
   Mentees,
+  MenteesProfile,
 } from "./Pages";
 import ClassRsc from "./Pages/ClassRsc";
 import TracksDetails from "./Pages/Admin/TracksDetails";
@@ -57,7 +58,6 @@ const App = () => {
         <Route path="classroom/:id" element={<ClassRsc />} />
         <Route path="classroom/assignment/:id" element={<AssignPage />} />
 
-
         <Route path="assignments" element={<Assignment />} />
         <Route path="new/assignments" element={<NewAssig />} />
         <Route path="assignments/:assignmentId" element={<AssignmentList />} />
@@ -74,6 +74,7 @@ const App = () => {
 
         <Route path="mentors" element={<Mentors />} />
         <Route path="mentees" element={<Mentees />} />
+        <Route path="mentees-profile/:id" element={<MenteesProfile />} />
 
         <Route path="settings" element={<Settings />} />
         <Route path="cohort/:cohortId" element={<CohortClass />} />

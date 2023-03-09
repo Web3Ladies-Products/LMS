@@ -12,3 +12,4 @@ export { default as Track } from "./Admin/Track";
 export { default as SingleGroup } from "./Admin/SingleGroup";
 export { default as Mentors } from "./Mentors";
 export { default as Mentees } from "./Mentees";
+export { default as MenteesProfile } from "./Mentees/MenteesProfile";

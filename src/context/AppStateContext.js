@@ -4,17 +4,19 @@ export const AppContext = createContext();
 
 const AppStateContext = ({ children }) => {
   const [active, setActive] = useState("Dashboard");
-  const [isAdmin, setIsAdmin] = useState(true);
-  const [manual, setManual] = useState(true)
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isMentor, setIsMentor] = useState(true);
   return (
-    <AppContext.Provider value={{ 
-      active, 
-      setActive, 
-      isAdmin, 
-      setIsAdmin,
-      manual,
-      setManual
-    }}>
+    <AppContext.Provider
+      value={{
+        active,
+        setActive,
+        isAdmin,
+        isMentor,
+        setIsMentor,
+        setIsAdmin,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

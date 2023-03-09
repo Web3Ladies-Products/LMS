@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Announcements,
   AssignmentCard,
+  MenteesTable,
   Navbar,
   PageHoc,
   RecentRecording,
@@ -13,6 +14,7 @@ import { IoMdClose } from "react-icons/io";
 import { tracksImage } from "../assets";
 import { useAppStateContent } from "../context/AppStateContext";
 import { BsPlusLg } from "react-icons/bs";
+import { menteesData } from "../Data";
 const tracksData = [
   {
     id: 1,
@@ -92,19 +94,21 @@ const assignmentData = [
 ];
 const Dashboard = () => {
   const [active, setActive] = useState("all");
-  const { isAdmin } = useAppStateContent();
+  const { isAdmin, isMentor } = useAppStateContent();
   const [assignment, setAssignment] = useState(assignmentData);
   return (
     <div className="w-full  ">
       <h1 className="text-2xl mb-6 font-bold">Dashboard</h1>
       {!isAdmin && (
-        <div className=" max-w-[1143px]  text-white bg-[#1A1A1A] px-[26px] py-2 sm:py-5 rounded-[8px] flex flex-col md:flex-row justify-between gap-2 md:items-center">
-          <div>
+        <div className=" w-full text-white bg-[#1A1A1A] px-[26px] py-2 sm:py-5 rounded-[8px] flex flex-col md:flex-row justify-between gap-2 md:items-center">
+          <div className="">
             <p>Welcome to Week 3!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p className="break-all">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
           </div>
           <div className="flex justify-between items-center gap-6">
-            <button className="rounded px-8 py-[14px] border-2 border-white">
+            <button className="rounded px-4 py-2 lg:px-8 lg:py-[14px] border-2 border-white">
               Go to class
             </button>
             <IoMdClose className="text-[#858585] cursor-pointer" />
@@ -117,31 +121,38 @@ const Dashboard = () => {
         <TotalPointCard point="1200" />
         <TotalPointCard point="1200" />
       </div>
-      <div className="mt-12 flex gap-[27px]">
-        <div>
-          <div className="">
-            <h3 className="font-bold text-5">My Track</h3>
-            <div className="flex gap-5 flex-wrap">
-              {tracksData.map((val) => (
-                <TracksCard
-                  trackImage={val.trackImage}
-                  track={val.track}
-                  cohort={val.cohort}
-                  progress={val.progress}
-                  status={val.status}
-                />
-              ))}
-              {isAdmin && (
-                <div className="w-[302px] cursor-pointer gap-[21px] bg-white h-[314px] flex justify-center items-center flex-col ">
-                  <div className="rounded-full w-16 h-16 bg-[#FBF5FE]   flex justify-center items-center flex-col">
-                    <BsPlusLg size={30} className="   text-[#7D0BFE] " />
-                  </div>
-                  <p className="text-[#858585] text-sm">Add new track</p>
-                </div>
-              )}
+      <div className="mt-12 flex w-fill gap-[27px]">
+        <div className="w-full">
+          {isMentor ? (
+            <div className="w-full">
+              <h3 className="font-bold text-5">Mentees</h3>
+              <MenteesTable menteesTableData={menteesData.splice(0, 9)} />
             </div>
-          </div>
-          {!isAdmin && (
+          ) : (
+            <div className="">
+              <h3 className="font-bold text-5">My Track</h3>
+              <div className="flex gap-5 flex-wrap">
+                {tracksData.map((val) => (
+                  <TracksCard
+                    trackImage={val.trackImage}
+                    track={val.track}
+                    cohort={val.cohort}
+                    progress={val.progress}
+                    status={val.status}
+                  />
+                ))}
+                {!isAdmin && !isMentor && (
+                  <div className="w-[302px] cursor-pointer gap-[21px] bg-white h-[314px] flex justify-center items-center flex-col ">
+                    <div className="rounded-full w-16 h-16 bg-[#FBF5FE]   flex justify-center items-center flex-col">
+                      <BsPlusLg size={30} className="   text-[#7D0BFE] " />
+                    </div>
+                    <p className="text-[#858585] text-sm">Add new track</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+          {!isAdmin && !isMentor && (
             <div className="mt-[52px] w-full">
               <h3 className="font-bold text-5">Assignments</h3>
               <div className="flex w-full bg-white mb-[2px] gap-5 py-4 px-6">
@@ -220,7 +231,7 @@ const Dashboard = () => {
           )}
         </div>
         <div className="hidden xl:flex">
-          {isAdmin ? <Announcements /> : <RecentRecording />}
+          {isAdmin || isMentor ? <Announcements /> : <RecentRecording />}
         </div>
       </div>
     </div>
