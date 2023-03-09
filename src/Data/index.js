@@ -335,3 +335,55 @@ export const classAss = {
     ],
 
   };
+
+  export const grades = {
+    header: [
+      {
+        id: 1,
+        type: "Item"
+      },
+      {
+        id: 2,
+        type: "Status"
+      },
+      {
+        id: 3,
+        type: "Due"
+      },
+      {
+        id: 4,
+        type: "Weight"
+      },
+      {
+        id: 5,
+        type: "Grade"
+      },
+    ],
+    list: [
+      {
+        id: 1,
+        item: "Create non-custodial wallet (Metamask; Trust wallet; Rainbow; Binance chain wallet) [Personal wallet]",
+        status: "Completed",
+        due: "Oct 16 11:59 PM WAT",
+        weight: "---",
+        grade: "A"
+      },
+      {
+        id: 2,
+        item: "Create non-custodial wallet (Metamask; Trust wallet; Rainbow; Binance chain wallet) [Personal wallet]",
+        status: "Pending",
+        due: "Oct 16 11:59 PM WAT",
+        weight: "---",
+        grade: "A"
+      },
+      {
+        id: 3,
+        item: "Create non-custodial wallet (Metamask; Trust wallet; Rainbow; Binance chain wallet) [Personal wallet]",
+        status: "Pending",
+        due: "Oct 16 11:59 PM WAT",
+        weight: "---",
+        grade: "A"
+      }
+    ],
+
+  };
