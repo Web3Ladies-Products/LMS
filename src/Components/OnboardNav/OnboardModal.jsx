@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import {
-  Button,
   Box,
   Text,
   useDisclosure,
@@ -10,9 +9,9 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import { userImg } from "../assets";
+import { userImg } from "../../assets";
 
-const OnboardModal = () => {
+const OnboardModal = ({setIsNav, setShowModal}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
@@ -45,11 +44,15 @@ const OnboardModal = () => {
               </Text>
               <div className="flex gap-3 mx-auto w-[80%]">
                 <Text
-                  onClick={onClose}
+                  onClick={() => {
+                    onClose()
+                    setIsNav(true)
+                    setShowModal(true)
+                  }}
                   as="button"
                   className="w-[35%] text-[16px] ml-auto rounded-md text-white py-2 px-4 my-5 bg-primary border-2"
                 >
-                  Done
+                  Show tips
                 </Text>
                 <Text
                   onClick={onClose}

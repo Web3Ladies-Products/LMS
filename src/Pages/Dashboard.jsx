@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Announcements,
   AssignmentCard,
@@ -14,8 +14,8 @@ import { useAppStateContent } from "../context/AppStateContext";
 import { BsPlusLg } from "react-icons/bs";
 
 import { menteesData } from "../Data";
-import { userImg } from "../assets";
-import OnboardModal from "../Components/OnboardModal";
+import OnboardModal from "../Components/OnboardNav/OnboardModal";
+import OnboardNav from "../Components/OnboardNav/OnboardNav";
 const tracksData = [
   {
     id: 1,
@@ -97,17 +97,20 @@ const assignmentData = [
 const Dashboard = () => {
   const [active, setActive] = useState("all");
   const { isAdmin, isMentor } = useAppStateContent();
+  const [isNav, setIsNav] = useState(false)
   const [assignment, setAssignment] = useState(assignmentData);
+  const [showModal, setShowModal] = useState(false);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     onOpen();
-  //   }, 1000);
-  // }, []);
 
   return (
-    <div className="w-full  ">
-      <OnboardModal />
+    <div className="w-full ">
+      {!isNav ? 
+      <OnboardModal setIsNav={setIsNav} setShowModal={setShowModal}/>
+      :
+      <div className="fixed overflow-hidden ">
+        <OnboardNav showModal={showModal} setShowModal={setShowModal} />
+      </div>
+      }
 
       <h1 className="text-2xl mb-6 font-bold">Dashboard</h1>
       {!isAdmin && (
@@ -134,7 +137,7 @@ const Dashboard = () => {
       </div>
       <div className="mt-12 flex w-fill gap-[27px]">
         <div className="w-full">
-          {isMentor ? (
+          {isMentor && !isAdmin ? (
             <div className="w-full">
               <h3 className="font-bold text-5">Mentees</h3>
               <MenteesTable menteesTableData={menteesData.splice(0, 9)} />
