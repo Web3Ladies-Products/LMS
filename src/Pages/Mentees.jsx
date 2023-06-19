@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MenteesTable, PageHoc } from "../Components";
+import TrackPaignation from "../Components/Tracks/TrackPagination";
 import {
   Input,
   InputGroup,
@@ -25,6 +26,16 @@ const Mentees = () => {
   const itemsPerPage = 2;
   const [displayedData, setDisplayData] = useState([]);
 
+  const [postsPerPage] = useState(8);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = menteesData.slice(indexOfFirstPost, indexOfLastPost);
+
+  //Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginateFront = () => setCurrentPage(currentPage + 1);
+  const paginateBack = () => setCurrentPage(currentPage - 1);
+
   const handleIncrementCurrent = () => {
     let startIndex = (currentPage - 1) * itemsPerPage;
     let endIndex = startIndex + itemsPerPage;
@@ -47,42 +58,15 @@ const Mentees = () => {
           <InputRightElement children={<CiSearch color="green.500" />} />
         </InputGroup>
       </div>
-      <MenteesTable menteesTableData={displayedData} />
-      <div className="w-full mt-[23px] flex justify-end">
-        <div className="w-[240px] flex items-center justify-end gap-2 ">
-          <p>Page</p>
-          <p className="bg-[#EDEDED] rounded px-2">{currentPage}</p>
-          <p>of</p>
-          <p
-            className={`${
-              currentPage === totalPages && "bg-[#EDEDED] rounded px-2"
-            }`}
-          >
-            {totalPages}
-          </p>
-          <div className="bg-white flex gap-2">
-            <MdOutlineKeyboardArrowLeft
-              className="cursor-pointer"
-              onClick={() => {
-                if (currentPage !== 1) {
-                  setCurrentPage(currentPage - 1);
-                }
-              }}
-              size={24}
-            />
-
-            <MdKeyboardArrowRight
-              onClick={() => {
-                if (currentPage !== totalPages) {
-                  setCurrentPage(currentPage + 1);
-                }
-              }}
-              className="cursor-pointer"
-              size={24}
-            />
-          </div>
-        </div>
-      </div>
+      <MenteesTable menteesTableData={currentPosts} />
+      <TrackPaignation
+        currentPage={currentPage}
+        postsPerPage={postsPerPage}
+        totalPosts={menteesData.length}
+        paginate={paginate}
+        paginateBack={paginateBack}
+        paginateFront={paginateFront}
+      />
     </div>
   );
 };
