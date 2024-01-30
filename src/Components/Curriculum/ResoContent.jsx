@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Accordion,
   AccordionItem,
@@ -6,99 +6,50 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
-} from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { classReso } from "../../Data";
+
 const ResoContent = () => {
   return (
     <>
-    <div class="w-fit   p-2 bg-gray-100 rounded-[3px]">
-    <Accordion allowMultiple>
-  <AccordionItem>
-    <h2>
-      <AccordionButton>
-        <AccordionIcon className="mb-3 " />
-        <Box as="span"   textAlign='left'>
-         What is a Crypto Wallet?
-         <div class="tablet:w-[650px] w-full  h-[2px] mt-2 bg-gray-400"></div> 
+      <div   className="w-fit   p-2 bg-gray-100 rounded-[3px]">
+        {classReso?.map((item) => (
+          <Accordion key={item.id} allowMultiple >
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <AccordionIcon className="mb-3 " />
+                  <Box as="span" textAlign="left">
+                    {item.header}
+                    <div   className="tablet:w-[650px] w-full  h-[2px] mt-2 bg-gray-400"></div>
+                  </Box>
+                </AccordionButton>
+              </h2>
+              {item.list.map((list) => (
+                <AccordionPanel key={list.id} pb={4}>
+                  <Link to={`/classroom/${list.id}`} >
+                    <div   className="flex mx-1 ">
+                      <div className="flex items-center justify-center ring-2 ring-gray-900 w-fit h-fit p-3 rounded-full mt-1 ">
+                        <img src={list.img} alt="play" />
+                      </div>
 
-        </Box>
-        
-      
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-      <Link to="/resources">
-    <div class="flex mx-1 ">
-    <div className="flex items-center justify-center ring-2 ring-gray-900 w-fit h-fit p-3 rounded-full mt-1 ">
-      
-    <svg width="14" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 13.96V0.0400391L12 7.00004L0 13.96ZM1.6 2.76004V11.16L8.8 6.92004L1.6 2.76004Z" fill="black"/>
-</svg>
-</div>
-
-  <div class="ml-3">
-    
-    <p class="text-lg font-medium">What is product management?</p>
-    <p class="text-xs text-gray-500">Video . 5 min </p>
-  </div>
-</div>
-</Link>
-    </AccordionPanel>
-    <AccordionPanel pb={4}>
-    <div class="flex mx-1 ">
-     <div className="flex items-center justify-center ring-2 ring-gray-900 w-fit h-fit p-3 rounded-full mt-1 ">
-     <svg width="14" height="14" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.16683 2.08262C1.90433 1.76889 2.96183 1.43057 3.99016 1.32543C5.0985 1.21181 6.0385 1.37885 6.5835 1.96307V10.2269C5.80433 9.77748 4.81683 9.71558 3.906 9.80885C2.92266 9.9106 1.931 10.1997 1.16683 10.4965V2.08262ZM7.41683 1.96307C7.96183 1.37885 8.90183 1.21181 10.0102 1.32543C11.0385 1.43057 12.096 1.76889 12.8335 2.08262V10.4965C12.0685 10.1997 11.0777 9.90975 10.0943 9.8097C9.18266 9.71558 8.196 9.77663 7.41683 10.2269V1.96307ZM7.00016 1.19655C6.17933 0.478362 4.98933 0.371524 3.906 0.481754C2.64433 0.611485 1.371 1.05155 0.577663 1.4187C0.50487 1.45239 0.443142 1.50668 0.399847 1.57509C0.356552 1.6435 0.333518 1.72314 0.333496 1.80451V11.1316C0.333515 11.2025 0.351027 11.2723 0.384427 11.3346C0.417827 11.3969 0.466048 11.4496 0.524672 11.488C0.583296 11.5264 0.65045 11.5492 0.719982 11.5543C0.789514 11.5595 0.859202 11.5468 0.922663 11.5174C1.65766 11.1782 2.84183 10.7704 3.98933 10.6525C5.1635 10.5321 6.14766 10.7263 6.67516 11.3962C6.71421 11.4457 6.76368 11.4856 6.81993 11.5131C6.87618 11.5406 6.93777 11.5548 7.00016 11.5548C7.06255 11.5548 7.12415 11.5406 7.1804 11.5131C7.23665 11.4856 7.28612 11.4457 7.32516 11.3962C7.85266 10.7263 8.83683 10.5321 10.0102 10.6525C11.1585 10.7704 12.3435 11.1782 13.0777 11.5174C13.1411 11.5468 13.2108 11.5595 13.2803 11.5543C13.3499 11.5492 13.417 11.5264 13.4757 11.488C13.5343 11.4496 13.5825 11.3969 13.6159 11.3346C13.6493 11.2723 13.6668 11.2025 13.6668 11.1316V1.80451C13.6668 1.72314 13.6438 1.6435 13.6005 1.57509C13.5572 1.50668 13.4955 1.45239 13.4227 1.4187C12.6293 1.05155 11.356 0.611485 10.0943 0.481754C9.011 0.370676 7.821 0.478362 7.00016 1.19655Z" fill="black" stroke="black" stroke-width="0.5"/>
-</svg>
-
-</div>
-
-  <div class="ml-3">
-    <p class="text-lg font-medium">Blockchain Wallet: What It Is, How It Works, Security Issues</p>
-    <p class="text-xs text-gray-500">Reading . 5 min </p>
-  </div>
-</div>
-    </AccordionPanel>
-    <AccordionPanel pb={4}>
-    <div class="flex mx-1 ">
-    <div className="flex items-center justify-center ring-2 ring-gray-900 w-fit h-fit p-3 rounded-full mt-1 ">
-     <svg width="14" height="14" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.16683 2.08262C1.90433 1.76889 2.96183 1.43057 3.99016 1.32543C5.0985 1.21181 6.0385 1.37885 6.5835 1.96307V10.2269C5.80433 9.77748 4.81683 9.71558 3.906 9.80885C2.92266 9.9106 1.931 10.1997 1.16683 10.4965V2.08262ZM7.41683 1.96307C7.96183 1.37885 8.90183 1.21181 10.0102 1.32543C11.0385 1.43057 12.096 1.76889 12.8335 2.08262V10.4965C12.0685 10.1997 11.0777 9.90975 10.0943 9.8097C9.18266 9.71558 8.196 9.77663 7.41683 10.2269V1.96307ZM7.00016 1.19655C6.17933 0.478362 4.98933 0.371524 3.906 0.481754C2.64433 0.611485 1.371 1.05155 0.577663 1.4187C0.50487 1.45239 0.443142 1.50668 0.399847 1.57509C0.356552 1.6435 0.333518 1.72314 0.333496 1.80451V11.1316C0.333515 11.2025 0.351027 11.2723 0.384427 11.3346C0.417827 11.3969 0.466048 11.4496 0.524672 11.488C0.583296 11.5264 0.65045 11.5492 0.719982 11.5543C0.789514 11.5595 0.859202 11.5468 0.922663 11.5174C1.65766 11.1782 2.84183 10.7704 3.98933 10.6525C5.1635 10.5321 6.14766 10.7263 6.67516 11.3962C6.71421 11.4457 6.76368 11.4856 6.81993 11.5131C6.87618 11.5406 6.93777 11.5548 7.00016 11.5548C7.06255 11.5548 7.12415 11.5406 7.1804 11.5131C7.23665 11.4856 7.28612 11.4457 7.32516 11.3962C7.85266 10.7263 8.83683 10.5321 10.0102 10.6525C11.1585 10.7704 12.3435 11.1782 13.0777 11.5174C13.1411 11.5468 13.2108 11.5595 13.2803 11.5543C13.3499 11.5492 13.417 11.5264 13.4757 11.488C13.5343 11.4496 13.5825 11.3969 13.6159 11.3346C13.6493 11.2723 13.6668 11.2025 13.6668 11.1316V1.80451C13.6668 1.72314 13.6438 1.6435 13.6005 1.57509C13.5572 1.50668 13.4955 1.45239 13.4227 1.4187C12.6293 1.05155 11.356 0.611485 10.0943 0.481754C9.011 0.370676 7.821 0.478362 7.00016 1.19655Z" fill="black" stroke="black" stroke-width="0.5"/>
-</svg>
-
-</div>
-
-  <div class="ml-3">
-    <p class="text-lg font-medium">What is Blockchain Wallet and How Does It Work?</p>
-    <p class="text-xs text-gray-500">Reading . 5 min </p>
-  </div>
-</div>
-    </AccordionPanel>
-    <AccordionPanel pb={4}>
-    <div class="flex mx-1 ">
-    <div className="flex items-center justify-center ring-2 ring-gray-900 w-fit h-fit p-3 rounded-full mt-1 ">
-     <svg width="14" height="14" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.16683 2.08262C1.90433 1.76889 2.96183 1.43057 3.99016 1.32543C5.0985 1.21181 6.0385 1.37885 6.5835 1.96307V10.2269C5.80433 9.77748 4.81683 9.71558 3.906 9.80885C2.92266 9.9106 1.931 10.1997 1.16683 10.4965V2.08262ZM7.41683 1.96307C7.96183 1.37885 8.90183 1.21181 10.0102 1.32543C11.0385 1.43057 12.096 1.76889 12.8335 2.08262V10.4965C12.0685 10.1997 11.0777 9.90975 10.0943 9.8097C9.18266 9.71558 8.196 9.77663 7.41683 10.2269V1.96307ZM7.00016 1.19655C6.17933 0.478362 4.98933 0.371524 3.906 0.481754C2.64433 0.611485 1.371 1.05155 0.577663 1.4187C0.50487 1.45239 0.443142 1.50668 0.399847 1.57509C0.356552 1.6435 0.333518 1.72314 0.333496 1.80451V11.1316C0.333515 11.2025 0.351027 11.2723 0.384427 11.3346C0.417827 11.3969 0.466048 11.4496 0.524672 11.488C0.583296 11.5264 0.65045 11.5492 0.719982 11.5543C0.789514 11.5595 0.859202 11.5468 0.922663 11.5174C1.65766 11.1782 2.84183 10.7704 3.98933 10.6525C5.1635 10.5321 6.14766 10.7263 6.67516 11.3962C6.71421 11.4457 6.76368 11.4856 6.81993 11.5131C6.87618 11.5406 6.93777 11.5548 7.00016 11.5548C7.06255 11.5548 7.12415 11.5406 7.1804 11.5131C7.23665 11.4856 7.28612 11.4457 7.32516 11.3962C7.85266 10.7263 8.83683 10.5321 10.0102 10.6525C11.1585 10.7704 12.3435 11.1782 13.0777 11.5174C13.1411 11.5468 13.2108 11.5595 13.2803 11.5543C13.3499 11.5492 13.417 11.5264 13.4757 11.488C13.5343 11.4496 13.5825 11.3969 13.6159 11.3346C13.6493 11.2723 13.6668 11.2025 13.6668 11.1316V1.80451C13.6668 1.72314 13.6438 1.6435 13.6005 1.57509C13.5572 1.50668 13.4955 1.45239 13.4227 1.4187C12.6293 1.05155 11.356 0.611485 10.0943 0.481754C9.011 0.370676 7.821 0.478362 7.00016 1.19655Z" fill="black" stroke="black" stroke-width="0.5"/>
-</svg>
-
-</div>
-
-  <div class="ml-3">
-    <p class="text-lg font-medium">What Is a Blockchain Wallet?</p>
-    <p class="text-xs text-gray-500">Reading . 5 min </p>
-  </div>
-</div>
-    </AccordionPanel>
-    
-  </AccordionItem>
-
-  
-</Accordion>
-     
-    
-    </div>
+                      <div   className="ml-3">
+                        <p   className="text-lg text-[black] font-medium">
+                          {list.title}
+                        </p>
+                        <p   className="text-xs text-gray-500">{list.time}</p>
+                      </div>
+                    </div>
+                  </Link>
+                </AccordionPanel>
+              ))}
+            </AccordionItem>
+          </Accordion>  
+        ))}
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default ResoContent
+export default ResoContent;

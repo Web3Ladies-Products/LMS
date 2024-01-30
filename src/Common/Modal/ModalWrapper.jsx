@@ -6,10 +6,10 @@ import {
   ModalBody,
 } from "@chakra-ui/react";
 
-const ModalWrapper = ({ children, isOpen, onOpen, onClose }) => {
+const ModalWrapper = ({ children, isOpen, onOpen, onClose, size }) => {
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} size={size} onClose={onClose}>
       <ModalOverlay />
       <ModalContent mt="150px">
         <ModalBody>

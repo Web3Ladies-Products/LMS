@@ -9,24 +9,30 @@ import { RxDragHandleDots2 } from "react-icons/rx";
 import { HiOutlineLogout } from "react-icons/hi";
 import { useState } from "react";
 import { logo } from "../assets";
-import { IoMdArrowDropdown, IoMdNotificationsOutline } from "react-icons/io";
+import {
+  IoMdArrowDropdown,
+  IoMdNotificationsOutline,
+  IoMdArrowDropup,
+} from "react-icons/io";
 import { GiSpiderWeb } from "react-icons/gi";
-import { useLocation, useNavigate } from "react-router-dom";
+import { BsDot } from "react-icons/bs";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppStateContent } from "../context/AppStateContext";
 import NavigateButton from "./sidebar/NavigateButton";
 
 const Sidebar = () => {
-  const { active, setActive, isAdmin } = useAppStateContent();
+  const { active, setActive, isAdmin, isMentor } = useAppStateContent();
+  const [userModal, setUserModal] = useState(false);
   const navigate = useNavigate();
   let location = useLocation();
 
   return (
-    <aside className=" px-4 border-r-[1px] bg-white min-h-screen border-[rgba(0, 0, 0, 0.2)] p-2">
-      <div className="text-[#858585] mb-16 text-center py-2">
+    <aside className="fixed w-0 lg:w-[11.5em] px-0 lg:px-4 border-0 lg:border-r-[1px] min-h-screen border-[rgba(0, 0, 0, 0.2)] p-2">    
+      <div className="hidden lg:block text-[#858585] mb-10 text-center py-2">
         <img src={logo} alt="Logo" />
       </div>
-      <nav>
-        {isAdmin ? (
+      <nav className="">
+        {isAdmin || isMentor ? (
           <ul>
             <NavigateButton
               url="/dashboard"
@@ -34,38 +40,76 @@ const Sidebar = () => {
               icon={<MdOutlineDashboard size={24} className="mr-2" />}
             />
 
-            <NavigateButton
-              url="/cohort-bootcamp"
-              text="Cohort & Bootcamp"
-              icon={<GiSpiderWeb size={24} className="mr-2" />}
-            />
-            <li
-              className={`flex items-center rounded cursor-pointer py-[17px] px-4 ${
-                location.pathname === "/users"
-                  ? "bg-[#F8F2FF] text-[#7D0BFE]"
-                  : "text-[#858585]"
-              }`}
-              // onClick={() => {
-              //   setActive("Classroom");
-              //   navigate("/classroom");
-              // }}
-            >
-              <BiUser size={24} className="mr-2" />{" "}
-              <span className="hidden lg:block">Users</span>
-              <button className="ml-auto">
-                <IoMdArrowDropdown />
-              </button>
-            </li>
-            <NavigateButton
-              url="/tracks"
-              text="Tracks"
-              icon={<BiRocket size={24} className="mr-2" />}
-            />
-            <NavigateButton
-              url="/modules"
-              text="Modules"
-              icon={<MdWindow size={24} className="mr-2" />}
-            />
+            {isMentor ? (
+              <NavigateButton
+                url="/modules"
+                text="Resources"
+                icon={<GiSpiderWeb size={24} className="mr-2" />}
+              />
+            ) : (
+              <NavigateButton
+                url="/cohort-bootcamp"
+                text="Cohort & Bootcamp"
+                icon={<GiSpiderWeb size={24} className="mr-2" />}
+              />
+            )}
+            {!isMentor && (
+              <>
+                <li
+                  className={`flex items-center rounded cursor-pointer py-[17px] px-4 ${
+                    active === "Users"
+                      ? "bg-[#F8F2FF] text-[#7D0BFE]"
+                      : "text-[#858585]"
+                  }`}
+                  onClick={() => {
+                    setActive("Users");
+                    setUserModal(!userModal);
+
+                    // navigate("/classroom");
+                  }}
+                >
+                  <BiUser size={24} className="mr-2" />
+
+                  <span className="block">Users</span>
+                  <button className="ml-auto">
+                    {userModal ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+                  </button>
+                </li>
+                {userModal && (
+                  <li className="flex flex-col items-center rounded cursor-pointer py-[12px]">
+                    <Link to="/mentees" className={`flex py-2 items-center`}>
+                      <BsDot size={20} />
+                      Mentees
+                    </Link>
+                    <Link to="/mentors" className="flex">
+                      <BsDot />
+                      Mentors
+                    </Link>
+                  </li>
+                )}
+              </>
+            )}
+
+            {isMentor ? (
+              <NavigateButton
+                url="/mentees"
+                text="Mentees"
+                icon={<BiRocket size={24} className="mr-2" />}
+              />
+            ) : (
+              <NavigateButton
+                url="/tracks"
+                text="Tracks"
+                icon={<BiRocket size={24} className="mr-2" />}
+              />
+            )}
+            {!isMentor && (
+              <NavigateButton
+                url="/modules"
+                text="Modules"
+                icon={<MdWindow size={24} className="mr-2" />}
+              />
+            )}
             <NavigateButton
               url="/assignments"
               text="Assignments"
@@ -76,11 +120,13 @@ const Sidebar = () => {
               text="Groups"
               icon={<RxDragHandleDots2 size={24} className="mr-2" />}
             />
-            <NavigateButton
-              url="/notification"
-              text="Notification"
-              icon={<IoMdNotificationsOutline size={24} className="mr-2" />}
-            />
+            {!isMentor && (
+              <NavigateButton
+                url="/notification"
+                text="Notification"
+                icon={<IoMdNotificationsOutline size={24} className="mr-2" />}
+              />
+            )}
           </ul>
         ) : (
           <ul className="flex flex-col border-b-[1px] border-[rgba(0, 0, 0, 0.2)]">
@@ -113,7 +159,7 @@ const Sidebar = () => {
               // }}
             >
               <BsPlayBtn size={24} className="mr-2" />{" "}
-              <span className="hidden lg:block">Classroom</span>
+              <span className="block">Classroom</span>
               <button className="ml-auto">
                 <IoMdArrowDropdown />
               </button>
@@ -127,14 +173,14 @@ const Sidebar = () => {
             onClick={() => {}}
           >
             <BsSlack size={24} className="mr-2" />{" "}
-            <span className="hidden lg:block">Go to slack</span>
+            <span className="block">Go to slack</span>
           </li>
           <li
             className={`text-[#858585] flex items-center rounded cursor-pointer py-[17px] px-4 `}
             onClick={() => {}}
           >
             <HiOutlineLogout size={24} className="mr-2" />{" "}
-            <span className="hidden lg:block">Logout</span>
+            <span className="block">Logout</span>
           </li>
         </ul>
       </nav>
